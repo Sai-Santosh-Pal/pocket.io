@@ -290,6 +290,10 @@ let currencyFormatter = Intl.NumberFormat("en-US", {
     return true;
   };
 
+
+
+  loadEntries();
+
 const yValues = [7, 8, 8, 9, 9, 9, 10, 11, 14, 14, 15];
 
 const expenseValues = yValues.filter((value, index) => entries[index].category === "expense");
@@ -358,8 +362,5 @@ new Chart("myChart", {
     },
   },
 });
-
-
-  loadEntries();
   updateDashboard();
 
