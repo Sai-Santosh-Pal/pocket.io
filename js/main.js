@@ -1,17 +1,65 @@
-const xValues = [50,60,70,80,90,100,110,120,130,140,150];
-const yValues = [7,8,8,9,9,9,10,11,14,14,15];
+const xValues = [50, 60, 70, 80, 90, 100, 110, 120, 130, 140, 150];
+const yValues = [7, 8, 8, 9, 9, 9, 10, 11, 14, 14, 15];
+const backgroundColors = [];
+const borderColors = [];
+
+// Set initial colors
+const initialColor = {
+  backgroundColor: "rgba(0, 0, 0, 0.0)", // Green
+  borderColor: "rgba(0, 0, 0, 0.3)", // Dark Green
+};
+
+backgroundColors.push(initialColor.backgroundColor);
+borderColors.push(initialColor.borderColor);
+
+for (let i = 1; i < yValues.length; i++) {
+  if (yValues[i] > yValues[i - 1]) {
+    // Increment: Use green
+    backgroundColors.push("rgba(0, 128, 0, 0.6)");
+    borderColors.push("rgba(0, 128, 0, 0)");
+  } else {
+    // Decrement: Use red
+    backgroundColors.push("rgba(255, 0, 0, 0.6)");
+    borderColors.push("rgba(255, 0, 0, 0)");
+  }
+}
 
 new Chart("myChart", {
   type: "line",
   data: {
     labels: xValues,
     datasets: [{
-      backgroundColor:"rgba(0,0,255,1.0)",
-      borderColor: "rgba(0,0,255,0.1)",
-      data: yValues
+      backgroundColor: backgroundColors,
+      borderColor: borderColors,
+      borderWidth: 2, // Adjust the border width as needed
+      pointRadius: 4, // Adjust the point radius as needed
+      data: yValues,
+      label: "Value",
     }]
-  }
+  },
+  options: {
+    responsive: true,
+    maintainAspectRatio: false,
+    legend: {
+      display: true,
+    },
+    scales: {
+      x: {
+        title: {
+          display: true,
+          text: "X Values",
+        },
+      },
+      y: {
+        title: {
+          display: true,
+          text: "Y Values",
+        },
+      },
+    },
+  },
 });
+
 let currencyFormatter = Intl.NumberFormat("en-US", {
     
   });
