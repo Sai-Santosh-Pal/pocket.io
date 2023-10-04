@@ -294,73 +294,73 @@ let currencyFormatter = Intl.NumberFormat("en-US", {
 
   loadEntries();
 
-const yValues = [7, 8, 8, 9, 9, 9, 10, 11, 14, 14, 15];
+// const yValues = [7, 8, 8, 9, 9, 9, 10, 11, 14, 14, 15];
 
-const expenseValues = yValues.filter((value, index) => entries[index].category === "expense");
-const incomeValues = yValues.filter((value, index) => entries[index].category === "income");
+// const expenseValues = yValues.filter((value, index) => entries[index].category === "expense");
+// const incomeValues = yValues.filter((value, index) => entries[index].category === "income");
 
-const backgroundColors = [];
-const borderColors = [];
+// const backgroundColors = [];
+// const borderColors = [];
 
-// Set initial colors
-const initialColor = {
-  backgroundColor: "rgba(0, 0, 0, 0.0)", // Transparent
-  borderColor: "rgba(0, 0, 0, 0.0)", // Transparent
-};
+// // Set initial colors
+// const initialColor = {
+//   backgroundColor: "rgba(0, 0, 0, 0.0)", // Transparent
+//   borderColor: "rgba(0, 0, 0, 0.0)", // Transparent
+// };
 
-backgroundColors.push(initialColor.backgroundColor);
-borderColors.push(initialColor.borderColor);
+// backgroundColors.push(initialColor.backgroundColor);
+// borderColors.push(initialColor.borderColor);
 
-for (let i = 1; i < yValues.length; i++) {
-  if (yValues[i] > yValues[i - 1]) {
-    // Increment: Use green
-    backgroundColors.push("rgba(0, 128, 0, 0.6)"); // Green with opacity
-    borderColors.push("rgba(0, 128, 0, 0)"); // Transparent
-  } else {
-    // Decrement: Use red
-    backgroundColors.push("rgba(255, 0, 0, 0.6)"); // Red with opacity
-    borderColors.push("rgba(255, 0, 0, 0)"); // Transparent
-  }
-}
+// for (let i = 1; i < yValues.length; i++) {
+//   if (yValues[i] > yValues[i - 1]) {
+//     // Increment: Use green
+//     backgroundColors.push("rgba(0, 128, 0, 0.6)"); // Green with opacity
+//     borderColors.push("rgba(0, 128, 0, 0)"); // Transparent
+//   } else {
+//     // Decrement: Use red
+//     backgroundColors.push("rgba(255, 0, 0, 0.6)"); // Red with opacity
+//     borderColors.push("rgba(255, 0, 0, 0)"); // Transparent
+//   }
+// }
 
-new Chart("myChart", {
-  type: "line",
-  data: {
-    labels: [],
-    datasets: [
-      {
-        label: "Expenses",
-        backgroundColor: backgroundColors,
-        borderColor: borderColors,
-        borderWidth: 2,
-        pointRadius: 4,
-        data: expenseValues,
-      },
-      {
-        label: "Incomes",
-        backgroundColor: "rgba(0, 255, 0, 0.6)", // Green with opacity
-        borderColor: "rgba(0, 255, 0, 0)", // Transparent
-        borderWidth: 2,
-        pointRadius: 4,
-        data: incomeValues,
-      },
-    ],
-  },
-  options: {
-    responsive: true,
-    maintainAspectRatio: false,
-    legend: {
-      display: false, // Hide the legend
-    },
-    scales: {
-      x: {
-        display: false, // Hide x-axis
-      },
-      y: {
-        display: false, // Hide y-axis
-      },
-    },
-  },
-});
+// new Chart("myChart", {
+//   type: "line",
+//   data: {
+//     labels: [],
+//     datasets: [
+//       {
+//         label: "Expenses",
+//         backgroundColor: backgroundColors,
+//         borderColor: borderColors,
+//         borderWidth: 2,
+//         pointRadius: 4,
+//         data: expenseValues,
+//       },
+//       {
+//         label: "Incomes",
+//         backgroundColor: "rgba(0, 255, 0, 0.6)", // Green with opacity
+//         borderColor: "rgba(0, 255, 0, 0)", // Transparent
+//         borderWidth: 2,
+//         pointRadius: 4,
+//         data: incomeValues,
+//       },
+//     ],
+//   },
+//   options: {
+//     responsive: true,
+//     maintainAspectRatio: false,
+//     legend: {
+//       display: false, // Hide the legend
+//     },
+//     scales: {
+//       x: {
+//         display: false, // Hide x-axis
+//       },
+//       y: {
+//         display: false, // Hide y-axis
+//       },
+//     },
+//   },
+// });
   updateDashboard();
 
