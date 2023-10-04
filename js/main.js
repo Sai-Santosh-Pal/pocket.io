@@ -10,8 +10,7 @@ new Chart("myChart", {
       borderColor: "rgba(0,0,255,0.1)",
       data: yValues
     }]
-  },
-  options:{...}
+  }
 });
 let currencyFormatter = Intl.NumberFormat("en-US", {
     
